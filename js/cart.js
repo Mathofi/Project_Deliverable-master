@@ -21,7 +21,7 @@ function displayCartProducts() {
             </div>
             `
         );
-        removeFromCart();//comment
+        removeFromCart();
     }
     else {
         cartCardContainer.innerHTML = '<p id="emptyCart">The cart is empty.</p>'
