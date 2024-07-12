@@ -53,3 +53,21 @@ function clearCart() {
     });
 }
 clearCart();
+
+function updateQuantity() {
+    let quantityNumberInput = document.getElementsByClassName('quantityNumberInput');
+    for(let i = 0; i < quantityNumberInput.length; i++) {
+        quantityNumberInput[i].addEventListener('change', (event)=>{
+            let quantityChanged = quantityNumberInput[i].value;
+            if(quantityChanged > 5) {
+                quantityChanged = 5;
+            }
+            let itemToChange = cart.find((item) => item.id == event.target.id);
+            itemToChange.quantity = +quantityChanged; 
+            localStorage.setItem("CART", JSON.stringify(cart));
+            if (typeof displayOrderSummary === "function") {
+                displayOrderSummary();
+            }
+        }, false);
+    }
+}
