@@ -67,3 +67,15 @@ function displayOrderSummary() {
         </div>`
 }
 displayOrderSummary();
+
+$(function() {
+    $('#checkoutThankYou').hide();
+    $('#checkoutButton').click(()=>{
+        if(!subtotal) {
+            $('#checkoutThankYou').html('The cart is currently empty.');
+        } else {
+            $('#checkoutThankYou').html('<span class="bold">Thank you for your order!!</span><br><br>Your order is being processed. Check your email for updates.');
+        }
+        $('#checkoutThankYou').slideDown();
+    })
+});
